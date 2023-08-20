@@ -9,11 +9,9 @@ on:
 permissions:
   contents: read
 
-
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
       - name: Setup repo
         uses: actions/checkout@v3
@@ -32,7 +30,7 @@ jobs:
 
   build_image:
     runs-on: ubuntu-latest
-    steps:  # 在这里定义具体步骤
-      - name: Build Docker Image  # 示例步骤
-        run: echo "Hello world !!"
+    steps:  
+      - name: Build Docker Image  
+        run: docker build -t hellocat .
         
