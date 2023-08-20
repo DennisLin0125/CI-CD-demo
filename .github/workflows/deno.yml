@@ -8,7 +8,5 @@ jobs:
   test:
     stage: testing
     image: denoland/deno:latest
-    tags:
-      - ubuntu
     script:
       - deno test
