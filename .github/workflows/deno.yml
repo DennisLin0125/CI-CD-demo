@@ -9,13 +9,9 @@ on:
 permissions:
   contents: read
 
-stages:
-  - testing
-  - build_image
 
 jobs:
   test:
-    stage: testing
     runs-on: ubuntu-latest
 
     steps:
@@ -35,7 +31,6 @@ jobs:
         run: deno test -A
 
   build_image:
-    stage: build_image
     runs-on: ubuntu-latest
     steps:  # 在这里定义具体步骤
       - name: Build Docker Image  # 示例步骤
