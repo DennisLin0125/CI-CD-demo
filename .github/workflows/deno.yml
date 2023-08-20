@@ -1,32 +1,14 @@
-name: Run Tests
+name: CI/CD Pipeline
 
-on:
-  push:
-    branches:
-      - main # 或者您项目的默认分支
+stages:
+  - testing
+  - build_image
 
 jobs:
   test:
-    runs-on: ubuntu-latest
-    
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
-      
-    - name: Set up Deno
-      uses: denoland/setup-deno@v2
-      with:
-        deno-version: latest
-        
-    - name: Run Tests
-      run: |
-        deno test > test_report.txt
-        
-    - name: Upload Test Report
-      uses: actions/upload-artifact@v2
-      with:
-        name: test-report
-        path: test_report.txt
-        
-    - name: Cleanup
-      run: rm test_report.txt
+    stage: testing
+    image: denoland/deno:latest
+    tags:
+      - ubuntu
+    script:
+      - deno test
