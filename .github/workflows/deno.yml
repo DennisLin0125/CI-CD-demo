@@ -9,8 +9,13 @@ on:
 permissions:
   contents: read
 
+stages:
+  - testing
+  - build_image
+
 jobs:
   test:
+    stage: testing
     runs-on: ubuntu-latest
 
     steps:
@@ -23,9 +28,14 @@ jobs:
         with:
           deno-version: v1.x
 
-
       - name: Run linter
         run: deno lint
 
       - name: Run tests
         run: deno test -A
+
+  build_image:
+    stage: build_image
+    script:
+      - echo "Hello world"
+      
