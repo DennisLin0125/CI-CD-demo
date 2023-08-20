@@ -1,4 +1,4 @@
-FROM denoland/setup-deno@v1
+FROM denoland/setup-deno
 
 WORKDIR /app
 
