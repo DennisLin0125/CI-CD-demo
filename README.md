@@ -1,3 +1,4 @@
+![example workflow](https://github.com/DennisLin0125/CI-CD-demo/actions/workflows/deno.yml/badge.svg)
 # Shopping Cat 
 
 Adopt, Don't Shop! 請以領養代替購買！
@@ -17,6 +18,6 @@ Adopt, Don't Shop! 請以領養代替購買！
 
 photo credits: [unsplash](https://unsplash.com/)
 
-![example workflow](https://github.com/DennisLin0125/CI-CD-demo/actions/workflows/deno.yml/badge.svg)
+
 
 
