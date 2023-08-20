@@ -1,36 +1,24 @@
-name: Deno_CI_CD
-
-on:
+name: GitHub Actions Demo
+on: 
   push:
-    branches: ["main"]
+    branches:
+      - "main"
   pull_request:
     branches: ["main"]
 
-permissions:
-  contents: read
-
 jobs:
-  test:
+  Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - name: Setup repo
-        uses: actions/checkout@v3
-
-      - name: Setup Deno
-        # uses: denoland/setup-deno@v1
-        uses: denoland/setup-deno@61fe2df320078202e33d7d5ad347e7dcfa0e8f31  # v1.1.2
+      - run: echo "? The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "? This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "? The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: Check out repository code
+        uses: actions/checkout@v2
         with:
-          deno-version: v1.x
-
-      - name: Run linter
-        run: deno lint
-
-      - name: Run tests
-        run: deno test -A
-
-  build_image:
-    runs-on: ubuntu-latest
-    steps:  
-      - name: Build Docker Image  
-        run: docker build -t hellocat .
-        
+            fetch-depth: 0
+      - run: echo "? The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "?️ The workflow is now ready to test your code on the runner."
+      - name: List files in the repository
+        run: ls ${{ github.workspace }}
+      - run: echo "? This job's status is ${{ job.status }}."
